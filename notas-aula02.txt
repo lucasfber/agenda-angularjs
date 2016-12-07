@@ -1,0 +1,14 @@
+Aula 02 - diretivas
+	ng-app
+	ng-controller
+	$scope
+	ng-bind
+	ng-repeat 
+	ng-model
+	ng-click
+
+	array.push(contato)
+	angular.copy(contato)
+	delete $scope.contato
+
+	

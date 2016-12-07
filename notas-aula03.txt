@@ -1,0 +1,60 @@
+Aula 03 - diretivas pt2
+
+	- ng-disabled
+
+	- ng-options - renderizar select "	operadora.codigo as	operadora.nome for operadora in operadoras"
+									
+		operadora.codigo as [definindo operadora.codigo como value no braço]
+		operadora.nome for [mostrado no select, por padrao é o valor do value]
+		operadora in operadoras [igual ao ng-repeat]
+
+		operadora.nome group by operadora.categoria for operadora in operadoras"
+		operadora.nome group by operadora.categoria [agrupando as opçoes do select de acordo com a categoria]
+
+	- ng-class
+		$scope.classe = "minha-classe-1"
+		ng-class="classe"
+
+		Atribuindo classe quando contato.selecionado for true, ou seja, quando um check-box for selecionado, por exemplo.
+		ng-class="{classe1 : contato.selecionado, classe2 : contato.selecionado}"
+		ou ng-class="{'classe1 classe2' : contato.selecionado}"
+
+	
+	- array.filter(function(){});	
+		var contatosSelecionados = $contatos.filter(function(contato){
+			if(contato.selecionado) return contato;
+		});
+
+		filter percorre o array no qual é chamado, e faz uma filtragem com base numa condiçao, e retorna um novo array
+		com os elementos filtrados. 
+
+	- array.some(function(contato){});		
+		return $contatos.some(function(contato){
+			return contato.selecionado;
+		});
+		some irá percorrer todo o array, olhando cada contato, se ao menos um contato.selecionado for true, entao
+		some() retornará true
+
+
+	- ng-style	
+		aplica cor, largura, altura algo mais específico
+		<div ng-style="{'background-color' : contato.cor}"></div>
+
+	-ngShow, ngHide, ngIf 
+		Exibem elementos de forma condicional
+
+		ng-show="condicao" Mostra elemento com base na condição
+		ng-hide="condicao" Esconde elemento com base na condição
+		ng-hide="condicao" Esconde elemento com base na condição
+		Mesmo escondendo determinado elemento, o elemento ainda continuará presente na pagina só nao será exibido;
+
+		ng-if não trabalha assim:
+			ng-if="condicao" Cria elemento no DOM com base na condição
+			ng-if trabalha com o DOM e realmente cria um elemento. Usado por questoes de perfomance. Para elementos
+			que consomem recursos que nao fazem sentido já serem pré-carregados.
+
+		ng-include 
+			Incluir conteudo dinamicamente. A ideia é similar a usada em JSP, PHP
+
+			ng-include="'footer.html'" 
+			Nao funcionara no Chrome, ele bloqueará e entenderá que isso sera uma chamada AJAX (???) 	
